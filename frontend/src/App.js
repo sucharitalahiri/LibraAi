@@ -14,31 +14,41 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
-  path="/dashboard"
-  element={
-    <PrivateRoute>
-      <DashboardPage />
-    </PrivateRoute>
-  }
-/>
+          path="/"
+          element={<LoginPage />}
+        />
 
-<Route
-  path="/projects"
-  element={
-    <PrivateRoute>
-      <ProjectsPage />
-    </PrivateRoute>
-  }
-/>
+        <Route
+          path="/signup"
+          element={<SignupPage />}
+        />
 
-<Route
-  path="/tasks"
-  element={
-    <PrivateRoute>
-      <TasksPage />
-    </PrivateRoute>
-  }
-/>
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <DashboardPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/projects"
+          element={
+            <PrivateRoute>
+              <ProjectsPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/tasks"
+          element={
+            <PrivateRoute>
+              <TasksPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
