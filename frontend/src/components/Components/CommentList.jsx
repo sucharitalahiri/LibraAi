@@ -1,24 +1,15 @@
-import React,
-{
+import React, {
   useEffect,
   useState
-}
-from "react";
+} from "react";
 
 import api from "../../api";
-
 import CommentForm from "./CommentForm";
 
 const CommentList = ({ taskId }) => {
 
   const [comments, setComments] =
     useState([]);
-
-  useEffect(() => {
-
-    fetchComments();
-
-  }, [taskId]);
 
   const fetchComments = async () => {
 
@@ -38,6 +29,13 @@ const CommentList = ({ taskId }) => {
     }
   };
 
+  useEffect(() => {
+
+    fetchComments();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [taskId]);
+
   return (
     <div>
 
@@ -46,13 +44,11 @@ const CommentList = ({ taskId }) => {
       {comments.length === 0 ? (
         <p>No comments yet.</p>
       ) : (
-        comments.map(comment => (
-
+        comments.map((comment) => (
           <div
             key={comment._id}
             className="comment-item"
           >
-
             <strong>
               {comment.user?.name}
             </strong>
@@ -60,9 +56,7 @@ const CommentList = ({ taskId }) => {
             <p>
               {comment.text}
             </p>
-
           </div>
-
         ))
       )}
 
