@@ -17,7 +17,6 @@ const {
 router.post(
   "/",
   authMiddleware,
-  roleMiddleware("Admin", "Manager"),
   createTask
 );
 
