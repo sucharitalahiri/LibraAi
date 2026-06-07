@@ -16,7 +16,6 @@ const {
 router.post(
   "/",
   authMiddleware,
-  roleMiddleware("Admin", "Manager"),
   createProject
 );
 
